@@ -1,0 +1,265 @@
+[gd_scene load_steps=5 format=3 uid="uid://cojqcvd1xwx4c"]
+
+[ext_resource type="Theme" uid="uid://brngccp4gbk2l" path="res://theme.theme" id="1_tb4yc"]
+[ext_resource type="Script" uid="uid://brns57owemb4o" path="res://dials.gd" id="2_2me8q"]
+[ext_resource type="Script" uid="uid://d0h0rvfsj4dr3" path="res://door.gd" id="3_wc1iw"]
+[ext_resource type="Script" uid="uid://7bu3j8fuiisc" path="res://house.gd" id="4_pqpuc"]
+
+[node name="Origin" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tb4yc")
+
+[node name="Dials" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 160.0
+offset_top = -184.0
+offset_right = 392.0
+offset_bottom = 190.0
+grow_vertical = 2
+script = ExtResource("2_2me8q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Dials"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Dials/VBoxContainer"]
+z_index = -3
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.7017301, 0.7017301, 0.7017301, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Dials/VBoxContainer/Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Display" type="Label" parent="Dials/VBoxContainer/Background/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+vertical_alignment = 1
+
+[node name="InputRows" type="VBoxContainer" parent="Dials/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="Row0" type="HBoxContainer" parent="Dials/VBoxContainer/InputRows"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="1" type="Button" parent="Dials/VBoxContainer/InputRows/Row0"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1"
+
+[node name="2" type="Button" parent="Dials/VBoxContainer/InputRows/Row0"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2"
+
+[node name="3" type="Button" parent="Dials/VBoxContainer/InputRows/Row0"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "3"
+
+[node name="Row1" type="HBoxContainer" parent="Dials/VBoxContainer/InputRows"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="4" type="Button" parent="Dials/VBoxContainer/InputRows/Row1"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "4"
+
+[node name="5" type="Button" parent="Dials/VBoxContainer/InputRows/Row1"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "5"
+
+[node name="6" type="Button" parent="Dials/VBoxContainer/InputRows/Row1"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "6"
+
+[node name="Row2" type="HBoxContainer" parent="Dials/VBoxContainer/InputRows"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="7" type="Button" parent="Dials/VBoxContainer/InputRows/Row2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "7"
+
+[node name="8" type="Button" parent="Dials/VBoxContainer/InputRows/Row2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "8"
+
+[node name="9" type="Button" parent="Dials/VBoxContainer/InputRows/Row2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "9"
+
+[node name="Row3" type="HBoxContainer" parent="Dials/VBoxContainer/InputRows"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="clear" type="Button" parent="Dials/VBoxContainer/InputRows/Row3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "C"
+
+[node name="0" type="Button" parent="Dials/VBoxContainer/InputRows/Row3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+
+[node name="ring" type="Button" parent="Dials/VBoxContainer/InputRows/Row3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "R"
+
+[node name="Door" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 160.0
+offset_top = 216.0
+offset_right = 396.0
+offset_bottom = 291.0
+grow_vertical = 2
+script = ExtResource("3_wc1iw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Door"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Close" type="Button" parent="Door/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Close"
+
+[node name="DoorLabel" type="Label" parent="Door/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 2.0
+text = "Closed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Color" type="ColorRect" parent="Door/HBoxContainer/DoorLabel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Door"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -22.5
+offset_right = -15.0
+offset_bottom = 22.5
+grow_vertical = 2
+text = "Door:"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="House" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -343.0
+offset_top = -100.0
+offset_right = -143.0
+offset_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("4_pqpuc")
+
+[node name="ColorRect" type="ColorRect" parent="House"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.2509804)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="House"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HouseLabel" type="Label" parent="House/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 28
+text = "Door is closed"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Accept" type="Button" parent="House/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+disabled = true
+text = "Accept"
+
+[node name="Reject" type="Button" parent="House/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+disabled = true
+text = "Reject"
+
+[connection signal="open_door" from="Dials" to="Door" method="open"]
+[connection signal="open_door" from="Dials" to="House" method="set_state" binds= [2]]
+[connection signal="ringing" from="Dials" to="House" method="set_state" binds= [1]]
+[connection signal="door_closed" from="Door" to="Dials" method="set_state" binds= [0]]
+[connection signal="door_closed" from="Door" to="House" method="set_state" binds= [0]]
+[connection signal="accepted" from="House" to="Door" method="open"]
+[connection signal="accepted" from="House" to="Dials" method="set_state" binds= [2]]
+[connection signal="rejected" from="House" to="Dials" method="set_state" binds= [0]]
+[connection signal="pressed" from="House/VBoxContainer/Accept" to="House" method="accept_pressed"]
+[connection signal="pressed" from="House/VBoxContainer/Reject" to="House" method="reject_pressed"]
